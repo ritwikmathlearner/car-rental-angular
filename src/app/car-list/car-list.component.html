@@ -1,0 +1,42 @@
+<div class="car-list-container">
+    <div class="delete-confirmation" *ngIf="deletePopUpActive">
+        <form action="#" (submit)="deleteCar()">
+            <h3>Delete Car Details</h3>
+            <input type="hidden" #carRegNumber>
+            <button type="submit" class="form-btn bg-danger">Delete</button>
+            <button type="button" class="form-btn bg-mute" (click)="deletePopUpActive=false; carDeleteRegNumber=''">Cancel</button>
+        </form>
+    </div>
+    <h4>List of Cars</h4>
+    <table>
+        <thead>
+            <tr>
+                <th>Registration Number</th>
+                <th>Make</th>
+                <th>Model</th>
+                <th>Year</th>
+                <th>Transmission Type</th>
+                <th>Body Type</th>
+                <th>Odometer</th>
+                <th>Colour</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let car of arrayOfCarsForList">
+              <td>{{ car.regNumber }}</td>
+              <td>{{ car.make }}</td>
+              <td>{{ car.model }}</td>
+              <td>{{ car.year }}</td>
+              <td>{{ car.transmissionType }}</td>
+              <td>{{ car.bodyType }}</td>
+              <td>{{ car.odometer }}</td>
+              <td>{{ car.colour }}</td>
+              <td>
+                <button class="list-btn bg-warning">Edit</button>
+                <button class="list-btn bg-danger" (click)="openDeletePopUp(car.regNumber)">Delete</button>
+              </td>
+          </tr>
+        </tbody>
+    </table>
+  </div>
