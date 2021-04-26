@@ -1,6 +1,6 @@
 <div class="form-container" id="form">
     <h4>Add Car Details</h4>
-    <form [formGroup]="addCarForm" (ngSubmit)="addCar($event)">
+    <form [formGroup]="addCarForm" (ngSubmit)="addCar()">
         <div class="form-group">
             <label for="regNumber">Registration Number</label>
             <input type="text" formControlName="regNumber">

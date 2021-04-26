@@ -7,7 +7,7 @@ import {CarsService} from '../cars.service';
   styleUrls: ['./car-list.component.css']
 })
 export class CarListComponent implements OnInit {
-  constructor(private carService: CarsService) {}
+  constructor(private carService: CarsService) { }
 
   arrayOfCarsForList = this.carService.carsArray;
 
@@ -20,7 +20,7 @@ export class CarListComponent implements OnInit {
   }
 
   deleteCar() {
-    this.arrayOfCarsForList = this.arrayOfCarsForList.filter((car) => car.regNumber !== this.carDeleteRegNumber);
+    this.arrayOfCarsForList = this.arrayOfCarsForList.filter((car: any) => car.regNumber !== this.carDeleteRegNumber);
     this.carDeleteRegNumber = '';
     this.deletePopUpActive = false;
   }
